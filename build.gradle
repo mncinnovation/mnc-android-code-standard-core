@@ -11,7 +11,7 @@ buildscript {
     ext.retrofit_version = "2.9.0"
     ext.glide_version = '4.12.0'
     ext.koin_version = "2.2.2"
-    ext.okhttp3_loggin_version = "3.14.9"
+    ext.okhttp3_logging_version = "3.14.9"
 
     repositories {
         google()

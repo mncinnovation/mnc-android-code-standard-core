@@ -43,7 +43,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "com.google.android.material:material:$material_version"
 
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_loggin_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_logging_version"
     //coroutine
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutine_version"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinx_coroutine_version"
