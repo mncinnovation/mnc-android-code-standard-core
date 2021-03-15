@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dust">#737476</color>
+    <color name="dust_alpha_50">#80737476</color>
+    <color name="midnight">#1f2124</color>
+    <color name="charcoal">#383a40</color>
+    <color name="charcoal_alpha_25">#40383a40</color>
+    <color name="charcoal_alpha_50">#80383a40</color>
+    <color name="aqua">#d8e9ef</color>
+    <color name="peach">#ffefe8</color>
+    <color name="cloud">#e0f7fa</color>
+    <color name="pebble">#f1f1f1</color>
+    <color name="pebble_alpha_20">#33f1f1f1</color>
+    <color name="melon">#8bc34a</color>
+    <color name="melon_alpha_20">#338bc34a</color>
+    <color name="orange">#ff8f00</color>
+    <color name="lime">#ffd54f</color>
+    <color name="apple">#bf360c</color>
+    <color name="electric">#296cc3</color>
+    <color name="grape">#5f2989</color>
+</resources>

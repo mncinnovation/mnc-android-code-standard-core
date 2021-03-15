@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.Body1" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">@dimen/body1_font_size</item>
+    </style>
+</resources>

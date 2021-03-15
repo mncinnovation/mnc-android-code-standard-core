@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="corner_radius">5dp</dimen>
+    <dimen name="space_default_left_right">16dp</dimen>
+    <dimen name="space_default_top_bottom">8dp</dimen>
+
+    <dimen name="space_small">4dp</dimen>
+    <dimen name="space_medium">8dp</dimen>
+    <dimen name="space_medium_big">12dp</dimen>
+    <dimen name="space_big">16dp</dimen>
+    <dimen name="space_big_super">20dp</dimen>
+
+    <dimen name="space_x0_5">4dp</dimen>
+    <dimen name="space_x1">8dp</dimen>
+    <dimen name="space_x1_5">12dp</dimen>
+    <dimen name="space_x2">16dp</dimen>
+    <dimen name="space_x2_5">20dp</dimen>
+    <dimen name="space_x3">24dp</dimen>
+    <dimen name="space_x3_5">28dp</dimen>
+    <dimen name="space_x4">32dp</dimen>
+    <dimen name="space_x4_5">36dp</dimen>
+    <dimen name="space_x5">40dp</dimen>
+    <dimen name="space_x5_5">44dp</dimen>
+    <dimen name="space_x6">48dp</dimen>
+    <dimen name="space_x6_5">52dp</dimen>
+    <dimen name="space_x7">56dp</dimen>
+    <dimen name="space_x7_5">60dp</dimen>
+    <dimen name="space_x8">64dp</dimen>
+    <dimen name="space_x8_5">68dp</dimen>
+    <dimen name="space_x9">72dp</dimen>
+    <dimen name="space_x9_5">76dp</dimen>
+    <dimen name="space_x10">80dp</dimen>
+    <dimen name="space_x10_5">84dp</dimen>
+    <dimen name="space_x11">88dp</dimen>
+    <dimen name="space_x11_5">92dp</dimen>
+    <dimen name="space_x12">96dp</dimen>
+    <dimen name="space_x12_5">100dp</dimen>
+    <dimen name="space_x13">104dp</dimen>
+
+    <dimen name="text_size_small">10sp</dimen>
+    <dimen name="text_size_normal">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_big">16sp</dimen>
+    <dimen name="text_size_big_jumbo">20sp</dimen>
+    <dimen name="text_size_jumbo">24sp</dimen>
+
+    <dimen name="heading1_font_size">32sp</dimen>
+    <dimen name="heading2_font_size">24sp</dimen>
+    <dimen name="heading3_font_size">20sp</dimen>
+    <dimen name="heading4_font_size">18sp</dimen>
+    <dimen name="body1_font_size">16sp</dimen>
+    <dimen name="body2_font_size">14sp</dimen>
+    <dimen name="caption1_font_size">12sp</dimen>
+    <dimen name="caption2_font_size">10sp</dimen>
+    <dimen name="caption3_font_size">8sp</dimen>
+
+    <dimen name="elevation_small">4dp</dimen>
+    <dimen name="elevation_medium">8dp</dimen>
+    <dimen name="elevation_big">16dp</dimen>
+
+    <dimen name="adapter_minimum_width">108dp</dimen>
+
+    <dimen name="spinner_dropdown_padding_horizontal">@dimen/space_x3</dimen>
+    <dimen name="spinner_dropdown_padding_vertical">@dimen/space_x2</dimen>
+    <dimen name="spinner_dropdown_drawable_padding">@dimen/space_x1</dimen>
+
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="view_vertical_spacing">@dimen/space_x1</dimen>
+
+    <dimen name="progress_padding_vertical">@dimen/space_x1</dimen>
+    <dimen name="right_tick_mark_margin">@dimen/space_x3</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+</resources>
