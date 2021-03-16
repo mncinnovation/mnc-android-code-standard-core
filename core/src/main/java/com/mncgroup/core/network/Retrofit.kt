@@ -21,6 +21,8 @@ import javax.net.ssl.X509TrustManager
 
 /**
  * To create KeyStore only 1 certificate
+ * @param context an context
+ * @param id an raw resource file
  */
 fun createKeyStore(context: Context, @RawRes id: Int): KeyStore =
     KeyStore.getInstance(KeyStore.getDefaultType()).apply {

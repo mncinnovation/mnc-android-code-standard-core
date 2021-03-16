@@ -9,6 +9,9 @@ import retrofit2.http.POST
 interface AuthApi {
     @POST("login")
     fun loginUser(@Body loginRequest: LoginRequest) : Call<LoginResponse>
+
+    @POST("registrasi")
+    fun registUser(@Body loginRequest: LoginRequest) : Call<LoginResponse>
 }
 
 const val AUTH_PATH = "auth/"

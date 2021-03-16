@@ -2,7 +2,7 @@ package com.mncgroup.common.network
 
 /**
  * This is constants value of response API.
- * TODO : Please to update this value following API contract.
+ * TODO: Please to update this value following API contract.
  */
 
 const val API_OK = "00"

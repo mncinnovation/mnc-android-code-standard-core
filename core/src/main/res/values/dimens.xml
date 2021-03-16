@@ -71,4 +71,6 @@
     <dimen name="right_tick_mark_margin">@dimen/space_x3</dimen>
     <dimen name="padding_large">16dp</dimen>
 
+    <dimen name="margin_large">16dp</dimen>
+
 </resources>

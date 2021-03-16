@@ -9,7 +9,7 @@ package com.mncgroup.common.model
  *    ... other responses
  * }
  *
- * TODO : Update base response following API contract project.
+ * TODO: Update [BaseResponseModel] following API contract project.
  */
 
 abstract class BaseResponseModel {

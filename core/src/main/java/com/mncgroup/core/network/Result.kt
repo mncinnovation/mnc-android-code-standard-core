@@ -8,11 +8,11 @@ import retrofit2.HttpException
 
 @Suppress("unused")
 @Keep
-public sealed class Result<out T : Any> {
+sealed class Result<out T : Any> {
     /**
      * Successful result of request without errors
      */
-    public class Ok<out T : Any>(public val data: T) : Result<T>() {
+    class Ok<out T : Any>(val data: T) : Result<T>() {
         override fun toString() = "Result.Ok{data=$data}"
     }
 

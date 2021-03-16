@@ -19,7 +19,7 @@ import com.mncgroup.common.model.UserModel
  *    }
  * }
  *
- * TODO : Update this following login contract API project.
+ * TODO: Update this following login contract API project.
  */
 class LoginResponse (
     override val responseCode: String,

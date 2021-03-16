@@ -9,7 +9,7 @@ package com.mncgroup.auth.model
  *   password : "qwerty123"
  * }
  *
- * TODO : Update this login request data following login request API contract.
+ * TODO: Update this login request data following login request API contract.
  */
 class LoginRequest (
     var email : String,
