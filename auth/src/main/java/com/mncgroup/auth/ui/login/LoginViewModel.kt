@@ -22,6 +22,8 @@ class LoginViewModel(
     private var _hasLoggedIn = SingleLiveEvent<Boolean>()
     val hasLoggedIn : LiveData<Boolean> get() = _hasLoggedIn
 
+    var errorMsg = ""
+
     init {
 
     }
@@ -29,7 +31,9 @@ class LoginViewModel(
     fun authLogin(email: String, password: String) {
         GlobalScope.launch(Dispatchers.Main) {
             val result = authRepository.requestLogin(LoginRequest(email, password))
-            result.handle {
+            result.handle ({
+                errorMsg = it.errorResponse.error ?: ""
+            }){
                 //other handle result ok
                 _hasLoggedIn.postValue(true)
             }

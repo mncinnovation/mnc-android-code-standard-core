@@ -24,6 +24,7 @@ android {
         }
     }
 
+    // TODO : replace base url
     flavorDimensions "flavor"
     productFlavors {
         prod {

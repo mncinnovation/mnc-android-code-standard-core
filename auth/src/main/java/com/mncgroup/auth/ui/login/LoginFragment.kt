@@ -49,7 +49,12 @@ class LoginFragment : BaseFragment() {
         with(viewModel) {
             userData.observeData(viewLifecycleOwner) {
                 it?.let { userModel ->
+                    if(userModel.isNotEmpty()){
+                        binding.etEmail.setText("")
+                        binding.etPassword.setText("")
 
+                        activity?.onBackPressed()
+                    }
                 }
             }
 

@@ -5,14 +5,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mncgroup.core.R
-import com.mncgroup.core.network.NeedUpdateException
+import com.mncgroup.core.network.*
 import com.mncgroup.core.repository.AnalyticsRepository
 import com.mncgroup.core.repository.EventType
 import com.mncgroup.core.util.ErrorWrapper
 import com.mncgroup.core.util.NoInternetConnection
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
-import com.mncgroup.core.network.Result
 import com.mncgroup.core.util.SingleLiveEvent
 
 open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? = null) : ViewModel(),
@@ -35,6 +34,10 @@ open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? =
 
     protected val _showUpdateDialog: SingleLiveEvent<ErrorWrapper> = SingleLiveEvent()
     val showUpdateDialog: LiveData<ErrorWrapper> = _showUpdateDialog
+
+    protected val _navigateToLogin: SingleLiveEvent<ErrorWrapper> = SingleLiveEvent()
+    val navigateToLogin: LiveData<ErrorWrapper> = _navigateToLogin
+
 
     override fun onCleared() {
         job.cancel()
@@ -64,6 +67,10 @@ open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? =
 
     protected open fun onResultException(exception: Result.Exception) {
         when (exception.exception) {
+            is DifferentDeviceException -> _navigateToLogin.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
+                ?: exception.exception.message ?: ""))
+            is NotLoggedInException -> _navigateToLogin.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
+                ?: exception.exception.message ?: ""))
             is NeedUpdateException -> _showUpdateDialog.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
                 ?: exception.exception.message ?: ""))
             is NoInternetConnection -> _showErrorDialog.postValue(ErrorWrapper(R.string.label_msg_offline))
