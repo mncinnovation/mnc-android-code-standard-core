@@ -2,13 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/auth"
+    android:id="@+id/navigation_auth"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.mncgroup.auth.ui.login.LoginFragment"
-        android:label="LoginFragment"
+        android:label="@string/title_login"
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registrationFragment"
@@ -20,11 +20,11 @@
     <fragment
         android:id="@+id/registrationFragment"
         android:name="com.mncgroup.auth.ui.registration.RegistrationFragment"
-        android:label="RegistrationFragment"
+        android:label="@string/title_registration"
         tools:layout="@layout/fragment_registration" />
     <fragment
         android:id="@+id/forgotPassFragment"
         android:name="com.mncgroup.auth.ui.forgotpass.ForgotPassFragment"
-        android:label="ForgotPassFragment"
+        android:label="@string/title_forgot_password_ask"
         tools:layout="@layout/fragment_forgot_pass" />
 </navigation>

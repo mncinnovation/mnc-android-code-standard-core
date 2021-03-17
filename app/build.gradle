@@ -48,36 +48,15 @@ android {
     buildFeatures {
         viewBinding true
     }
-
-
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.core:core-ktx:$kotlin_core_version"
-
-    //androidx/ jetpack component
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
-
-    implementation "com.google.android.material:material:$material_version"
-
     //features module
     implementation project(':auth')
 
-    implementation project(':core')
     implementation project(':common')
-
-    //koin for androidx viewmodel
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.3.3'
-    implementation 'androidx.navigation:navigation-ui:2.3.3'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+    implementation project(':core')
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

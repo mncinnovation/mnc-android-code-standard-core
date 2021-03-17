@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MNCCoreAndroid">
         <activity
             android:name=".ui.MainActivity"
-            android:label="@string/title_activity_main2">
+            android:label="@string/title_activity_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

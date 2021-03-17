@@ -11,11 +11,14 @@ import java.util.*
  * @param message error message description
  * @param path path of url request
  */
-data class ErrorResponse(val timestamp: Date, val status: String,
-                         val error: String?,
-                         private val message: String, val path: String)
+data class ErrorResponse(
+    val timestamp: Date, val status: String,
+    val error: String?,
+    private val message: String, val path: String
+)
 
-fun defaultError(path: String, status: String = "500", message: String = "Internal Server Error") = ErrorResponse(Date(), status, message, message, path)
+fun defaultError(path: String, status: String = "500", message: String = "Internal Server Error") =
+    ErrorResponse(Date(), status, message, message, path)
 
 @Keep
 class DifferentDeviceException(message: String) : Exception(message)
@@ -32,7 +35,8 @@ class SessionExpiredException(message: String) : Exception(message)
  * @param message message of not loggedin exception
  */
 @Keep
-class NotLoggedInException(message: String = "Kamu belum login, silakan login terlebih dahulu") : Exception(message)
+class NotLoggedInException(message: String = "Kamu belum login, silakan login terlebih dahulu") :
+    Exception(message)
 
 /**
  * An user banned exception

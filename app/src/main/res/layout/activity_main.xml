@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     android:paddingTop="?attr/actionBarSize">
 
-    <fragment
-        android:id="@+id/nav_host_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <!--    <fragment-->
+    <!--        android:id="@+id/nav_host_fragment"-->
+    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:defaultNavHost="true"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/nav_view"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:navGraph="@navigation/navigation_mobile" />-->
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/mobile_navigation" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
@@ -28,7 +37,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/main_bottom_nav_menu" />
+        app:menu="@menu/menu_main_bottom_nav" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

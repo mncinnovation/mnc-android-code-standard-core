@@ -4,7 +4,8 @@
     <string name="hint_email">Masukkan Email</string>
     <string name="title_login">Login</string>
     <string name="title_registration">Registration</string>
-    <string name="title_forgot_password_ask">Lupa password?</string>
+    <string name="title_forgot_password_ask">Forgot password?</string>
     <string name="title_forgot_ask">Lupa?</string>
     <string name="title_click_here">Click here</string>
+    <string name="hint_password">Masukkan Password</string>
 </resources>

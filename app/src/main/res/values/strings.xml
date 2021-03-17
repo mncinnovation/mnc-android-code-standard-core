@@ -6,10 +6,8 @@
     <string name="cd_account">@string/title_account</string>
     <string name="cd_home">@string/title_home</string>
     <string name="cd_explore">@string/title_explore</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_notification">Notification</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_dashboard">Dashboard</string>
 </resources>
