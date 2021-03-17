@@ -17,8 +17,13 @@ import java.io.Serializable
 data class UserModel(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
-    var token : String,
+    var token: String? = null,
     var name: String,
     var email: String,
     var pictureUrl: String
-) : Serializable
+) : Serializable {
+
+    fun isLoggedIn(): Boolean {
+        return !token.isNullOrEmpty()
+    }
+}

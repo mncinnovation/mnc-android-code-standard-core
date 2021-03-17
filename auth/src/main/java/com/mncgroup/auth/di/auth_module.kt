@@ -20,14 +20,14 @@ val authRemoteDataSourceModule = module {
  * inject repository
  */
 val authRepository = module {
-    single { AuthRepositoryImpl(get()) as AuthRepository }
+    single { AuthRepositoryImpl(get(), get()) as AuthRepository }
 }
 
 /**
  * inject view model
  */
 val authFeatures = module {
-    viewModel { LoginViewModel(get()) }
+    viewModel { LoginViewModel(get(), get()) }
 }
 
 val authModule = listOf(authRemoteDataSourceModule, authRepository, authFeatures)

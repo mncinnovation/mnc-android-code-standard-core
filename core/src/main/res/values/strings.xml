@@ -1,4 +1,5 @@
 <resources>
 
-    <string name="label_msg_offline">Tidak ada koneksi internet. Pastikan HP terhubung dengan internet!</string>
+    <string name="label_msg_offline">No internet connection. Please to make sure your phone connected with internet!</string>
+    <string name="label_please_wait">Please wait!</string>
 </resources>

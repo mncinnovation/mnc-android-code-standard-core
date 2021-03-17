@@ -1,7 +1,6 @@
 package com.mncgroup.common.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.mncgroup.common.model.UserModel
 import kotlinx.coroutines.Dispatchers
@@ -15,23 +14,12 @@ interface UserRepository {
     /**
      * return live data of user model
      */
-    fun getUserLiveData(): LiveData<UserModel>
-
-    /**
-     * get user data
-     */
-    val userData: UserModel?
-
-    /**
-     * to check token of user
-     * @return boolean value, true if already logged in or false if not logged in
-     */
-    fun isLoggedIn(): Boolean
+    fun getUserLiveData(): LiveData<List<UserModel>>
 
     /**
      * Function to update user data
      */
-    fun updateUser(userModel: UserModel): UserModel
+    fun updateUser(userModel: UserModel): LiveData<List<UserModel>>
 
     /**
      * Function to remove user data from app
@@ -45,37 +33,28 @@ interface UserRepository {
  */
 class UserRepositoryImpl(private val userAccessDAO: UserAccessDAO) : UserRepository {
 
-    private var _user: UserModel? = userAccessDAO.getUserData().value
-    private val _userLiveData: MutableLiveData<UserModel> =
-        MutableLiveData<UserModel>().apply { _user }
+    private val _userLiveData =
+        userAccessDAO.getUserData()
 
+    override fun getUserLiveData(): LiveData<List<UserModel>> {
+        return _userLiveData
+    }
 
-    override fun getUserLiveData(): LiveData<UserModel> {
-        _userLiveData.value = _user
+    override fun updateUser(userModel: UserModel): LiveData<List<UserModel>> {
+        GlobalScope.launch(Dispatchers.IO) {
+            try {
+                userAccessDAO.insertDataUser(userModel)
+            } catch (e: Exception) {
+                //if something happens bad then nuke the table on background thread
+                e.printStackTrace()
+            }
+        }
 
         return _userLiveData
     }
 
-    override val userData: UserModel?
-        get() = _user
-
-    override fun isLoggedIn(): Boolean {
-        return !_user?.token.isNullOrEmpty()
-    }
-
-    override fun updateUser(userModel: UserModel): UserModel {
-        GlobalScope.launch(Dispatchers.Main) {
-            userAccessDAO.insertDataUser(userModel)
-        }
-
-        _user = userModel
-        return _user ?: userModel
-    }
-
     override fun clearUser() {
-        _user = null
         userAccessDAO.removeUser()
-        _userLiveData.value = _user
     }
 }
 
@@ -87,12 +66,11 @@ interface UserAccessDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDataUser(loginTableModel: UserModel)
 
-    @Query("SELECT * FROM user LIMIT 1")
-    fun getUserData(): LiveData<UserModel>
-
+    @Query("SELECT * FROM user")
+    fun getUserData(): LiveData<List<UserModel>>
 }
 
-@Database(entities = [UserModel::class], version = 1, exportSchema = false)
+@Database(entities = [UserModel::class], version = 2, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
     abstract fun userDao(): UserAccessDAO
 }

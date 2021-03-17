@@ -4,6 +4,7 @@ import com.mncgroup.auth.model.LoginRequest
 import com.mncgroup.auth.model.LoginResponse
 import com.mncgroup.common.model.UserModel
 import com.mncgroup.common.network.awaitResult
+import com.mncgroup.common.repository.UserRepository
 import com.mncgroup.core.network.ErrorResponse
 import com.mncgroup.core.network.Result
 import com.mncgroup.core.network.defaultError
@@ -16,12 +17,13 @@ interface AuthRepository {
     suspend fun requestLogin(request: LoginRequest): Result<LoginResponse>
 }
 
-class AuthRepositoryImpl(private val authApi: AuthApi) : AuthRepository {
+class AuthRepositoryImpl(private val authApi: AuthApi, private val userRepository: UserRepository) :
+    AuthRepository {
     override suspend fun requestLogin(request: LoginRequest): Result<LoginResponse> {
         return runIfConnectedOrResultException {
-            //for test only, return data dummy
+            //for test only, return data dummy after delay 2 seconds
             delay(2000)
-            if (request.email == "bayu.wijaya@mncgroup.com" && request.password == "bayu.wijaya@mncgroup.com") {
+            if (request.email == "bayu.wijaya@mncgroup.com" && request.password == "123456") {
                 Result.Ok(
                     LoginResponse(
                         "00", "Success",
@@ -33,13 +35,19 @@ class AuthRepositoryImpl(private val authApi: AuthApi) : AuthRepository {
                             "picture.png"
                         )
                     )
-                )
+                ).also {
+                    userRepository.updateUser(it.data.user)
+                }
+
             } else {
                 Result.Error(200, defaultError("/login", "01", "Email atau password salah"))
             }
 
             //if rest api already exist use this
-//            authApi.loginUser(request).awaitResult()
+//            authApi.loginUser(request).awaitResult() {
+//                userRepository.updateUser(this.user)
+//                this
+//            }
         }
     }
 

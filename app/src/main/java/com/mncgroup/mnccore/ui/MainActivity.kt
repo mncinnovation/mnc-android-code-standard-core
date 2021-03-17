@@ -1,19 +1,24 @@
 package com.mncgroup.mnccore.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.mncgroup.common.di.TAG_API
+import com.mncgroup.common.model.UserModel
+import com.mncgroup.core.util.ext.observeData
 //import androidx.navigation.ui.setupActionBarWithNavController
 import com.mncgroup.mnccore.R
 import com.mncgroup.mnccore.databinding.ActivityMainBinding
 import com.mncgroup.mnccore.util.setupWithNavController
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private var currentNavController: LiveData<NavController>? = null
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,26 +57,37 @@ class MainActivity : AppCompatActivity() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        binding.navView.apply {
-            menu.clear() //clear old inflated items.
-            //if not logged in
-            inflateMenu(R.menu.menu_notloggedin_bottom_nav)
-            //if logged in
-//            inflateMenu(R.menu.menu_main_bottom_nav)
+        checkDataUserAndSetupNavBar(viewModel.userData.value?.get(0))
+        viewModel.userData.observeData(this) { userData ->
+            userData?.let {
+                if(it.isNotEmpty()){
+                    val user: UserModel = it[0]
+                    checkDataUserAndSetupNavBar(user)
+                }
+            }
         }
+    }
 
-        //if not logged in
-        var navGraphIds = listOf(
-            R.navigation.navigation_home,
-            R.navigation.navigation_auth
-        )
-
-        //if logged in
-//        navGraphIds = listOf(
-//            R.navigation.navigation_home,
-//            R.navigation.navigation_dashboard,
-//            R.navigation.navigation_notifications
-//        )
+    private fun checkDataUserAndSetupNavBar(userModel: UserModel?) {
+        Log.e(TAG_API,"user: ${userModel?.token}")
+        val navGraphIds : List<Int>
+        binding.navView.menu.clear()
+        if (userModel?.isLoggedIn() == true){
+            Log.e(TAG_API,"userLoggedin: ${userModel.token}")
+            navGraphIds = listOf(
+                R.navigation.navigation_home,
+                R.navigation.navigation_dashboard,
+                R.navigation.navigation_notifications
+            )
+            binding.navView.inflateMenu(R.menu.menu_main_bottom_nav)
+        } else {
+            Log.e(TAG_API,"userNotLoggedin: ${userModel?.token}")
+            navGraphIds = listOf(
+                R.navigation.navigation_home,
+                R.navigation.navigation_auth
+            )
+            binding.navView.inflateMenu(R.menu.menu_notloggedin_bottom_nav)
+        }
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = binding.navView.setupWithNavController(
@@ -82,9 +98,11 @@ class MainActivity : AppCompatActivity() {
         )
 
         // Whenever the selected controller changes, setup the action bar.
-        controller.observe(this, Observer { navController ->
-            setupActionBarWithNavController(navController)
-        })
+        controller.observeData(this) { navController ->
+            navController?.let {
+                setupActionBarWithNavController(it)
+            }
+        }
         currentNavController = controller
     }
 
