@@ -14,7 +14,8 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import com.mncgroup.core.util.SingleLiveEvent
 
-open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? = null) : ViewModel(),
+open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? = null) :
+    ViewModel(),
     CoroutineScope {
 
     val TAG = "BaseViewModel"
@@ -37,7 +38,6 @@ open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? =
 
     protected val _navigateToLogin: SingleLiveEvent<ErrorWrapper> = SingleLiveEvent()
     val navigateToLogin: LiveData<ErrorWrapper> = _navigateToLogin
-
 
     override fun onCleared() {
         job.cancel()
@@ -67,10 +67,9 @@ open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? =
 
     protected open fun onResultException(exception: Result.Exception) {
         when (exception.exception) {
-            is DifferentDeviceException -> _navigateToLogin.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
-                ?: exception.exception.message ?: ""))
-            is NotLoggedInException -> _navigateToLogin.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
-                ?: exception.exception.message ?: ""))
+            is NotLoggedInException, is DifferentDeviceException -> _navigateToLogin.postValue(
+                ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
+                    ?: exception.exception.message ?: ""))
             is NeedUpdateException -> _showUpdateDialog.postValue(ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }
                 ?: exception.exception.message ?: ""))
             is NoInternetConnection -> _showErrorDialog.postValue(ErrorWrapper(R.string.label_msg_offline))

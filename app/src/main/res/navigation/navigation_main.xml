@@ -23,9 +23,6 @@
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
-    <fragment
-        android:id="@+id/navigation_auth"
-        android:name="com.mncgroup.auth.ui.login.LoginFragment"
-        android:label="@string/title_account"
-        tools:layout="@layout/fragment_login" />
+    <include app:graph="@navigation/navigation_auth" />
+
 </navigation>
