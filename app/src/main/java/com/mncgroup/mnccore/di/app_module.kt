@@ -14,7 +14,7 @@ val mainFeatures = module {
     viewModel { MainViewModel(get()) }
     viewModel { DashboardViewModel() }
     viewModel { HomeViewModel() }
-    viewModel { NotificationsViewModel() }
+    viewModel { NotificationsViewModel(get()) }
 }
 
 val appModules = listOf(mainFeatures) + commonModule + authModule

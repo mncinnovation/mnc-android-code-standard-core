@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         } // Else, need to wait for onRestoreInstanceState
     }
 
+
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         // Now that BottomNavigationBar has restored its instance state
@@ -57,12 +58,14 @@ class MainActivity : AppCompatActivity() {
      * Called on first creation and when restoring state.
      */
     private fun setupBottomNavigationBar() {
-        checkDataUserAndSetupNavBar(viewModel.userData.value?.get(0))
+//        checkDataUserAndSetupNavBar(viewModel.userData.value?.get(0))
         viewModel.userData.observeData(this) { userData ->
             userData?.let {
                 if(it.isNotEmpty()){
                     val user: UserModel = it[0]
                     checkDataUserAndSetupNavBar(user)
+                } else {
+                    checkDataUserAndSetupNavBar(null)
                 }
             }
         }
@@ -74,19 +77,19 @@ class MainActivity : AppCompatActivity() {
         binding.navView.menu.clear()
         if (userModel?.isLoggedIn() == true){
             Log.e(TAG_API,"userLoggedin: ${userModel.token}")
+            binding.navView.inflateMenu(R.menu.menu_main_bottom_nav)
             navGraphIds = listOf(
                 R.navigation.navigation_home,
                 R.navigation.navigation_dashboard,
                 R.navigation.navigation_notifications
             )
-            binding.navView.inflateMenu(R.menu.menu_main_bottom_nav)
         } else {
             Log.e(TAG_API,"userNotLoggedin: ${userModel?.token}")
+            binding.navView.inflateMenu(R.menu.menu_notloggedin_bottom_nav)
             navGraphIds = listOf(
                 R.navigation.navigation_home,
                 R.navigation.navigation_auth
             )
-            binding.navView.inflateMenu(R.menu.menu_notloggedin_bottom_nav)
         }
 
         // Setup the bottom navigation view with a list of navigation graphs

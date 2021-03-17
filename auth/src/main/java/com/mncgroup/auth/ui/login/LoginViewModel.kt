@@ -7,6 +7,7 @@ import com.mncgroup.auth.repository.AuthRepository
 import com.mncgroup.common.model.UserModel
 import com.mncgroup.common.repository.UserRepository
 import com.mncgroup.core.ui.BaseViewModel
+import com.mncgroup.core.util.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,6 +19,8 @@ class LoginViewModel(
 
 
     val userData: LiveData<List<UserModel>> = userRepository.getUserLiveData()
+    private var _hasLoggedIn = SingleLiveEvent<Boolean>()
+    val hasLoggedIn : LiveData<Boolean> get() = _hasLoggedIn
 
     init {
 
@@ -28,7 +31,7 @@ class LoginViewModel(
             val result = authRepository.requestLogin(LoginRequest(email, password))
             result.handle {
                 //other handle result ok
-
+                _hasLoggedIn.postValue(true)
             }
         }
     }

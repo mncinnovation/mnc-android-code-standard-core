@@ -54,17 +54,21 @@ class UserRepositoryImpl(private val userAccessDAO: UserAccessDAO) : UserReposit
     }
 
     override fun clearUser() {
-        userAccessDAO.removeUser()
+        GlobalScope.launch(Dispatchers.IO) {
+            _userLiveData.value?.get(0)?.let { userModel ->
+                userAccessDAO.removeUser(userModel)
+            }
+        }
     }
 }
 
 @Dao
 interface UserAccessDAO {
-    @Query("DELETE FROM user")
-    fun removeUser()
+    @Delete
+    suspend fun removeUser(userModel: UserModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDataUser(loginTableModel: UserModel)
+    suspend fun insertDataUser(userModel: UserModel)
 
     @Query("SELECT * FROM user")
     fun getUserData(): LiveData<List<UserModel>>
