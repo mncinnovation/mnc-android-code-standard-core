@@ -1,5 +1,7 @@
 <resources>
+    <!-- TODO : Replace or change app_name with app name of project. And also others string is possible to change and fit it with your requirements-->
     <string name="app_name">MNC Core Android</string>
+
     <string name="title_home">Home</string>
     <string name="title_explore">Explore</string>
     <string name="title_account">Account</string>

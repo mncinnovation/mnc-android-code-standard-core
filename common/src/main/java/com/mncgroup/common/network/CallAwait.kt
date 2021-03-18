@@ -3,6 +3,11 @@
 package com.mncgroup.common.network
 
 import com.mncgroup.common.model.BaseResponseModel
+import com.mncgroup.common.network.ConstantApi.Companion.API_ERROR_DEVICE
+import com.mncgroup.common.network.ConstantApi.Companion.API_ERROR_LOGGED_OUT
+import com.mncgroup.common.network.ConstantApi.Companion.API_ERROR_NEED_UPDATE
+import com.mncgroup.common.network.ConstantApi.Companion.API_ERROR_SESSION_EXPIRED
+import com.mncgroup.common.network.ConstantApi.Companion.API_OK
 import com.mncgroup.core.network.*
 import com.mncgroup.core.network.Result
 import kotlinx.coroutines.*

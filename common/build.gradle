@@ -57,6 +57,11 @@ dependencies {
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
     api "androidx.fragment:fragment-ktx:$fragment_version"
+    //room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
 
     //logging version should be same with okhttp3 version from retrofit
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_logging_version"
@@ -69,12 +74,6 @@ dependencies {
     api "org.koin:koin-androidx-viewmodel:$koin_version"
     // Koin for Kotlin
     api "org.koin:koin-core:$koin_version"
-
-    //room
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation "androidx.room:room-ktx:$room_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
