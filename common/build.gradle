@@ -58,7 +58,7 @@ dependencies {
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
     api "androidx.fragment:fragment-ktx:$fragment_version"
     //room
-    implementation "androidx.room:room-runtime:$room_version"
+    api "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"

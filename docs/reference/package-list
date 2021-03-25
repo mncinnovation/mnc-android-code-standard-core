@@ -1,0 +1,24 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+$dokka.location:com.mncgroup.common.network$awaitDeferred(retrofit2.Call((com.mncgroup.common.network.awaitDeferred.T)), kotlinx.coroutines.CoroutineScope)com.mncgroup.common.network/retrofit2.-call/await-deferred.md
+$dokka.location:com.mncgroup.common.network$awaitDeferred(retrofit2.Call((com.mncgroup.common.network.awaitDeferred.T)), kotlinx.coroutines.CoroutineScope, kotlin.Function1((com.mncgroup.common.network.awaitDeferred.T, com.mncgroup.common.network.awaitDeferred.R)))com.mncgroup.common.network/retrofit2.-call/await-deferred.md
+$dokka.location:com.mncgroup.common.network$awaitResult(retrofit2.Call((com.mncgroup.common.network.awaitResult.T)))com.mncgroup.common.network/retrofit2.-call/await-result.md
+$dokka.location:com.mncgroup.common.network$awaitResult(retrofit2.Call((com.mncgroup.common.network.awaitResult.T)), kotlin.Function1((com.mncgroup.common.network.awaitResult.T, com.mncgroup.common.network.awaitResult.R)))com.mncgroup.common.network/retrofit2.-call/await-result.md
+$dokka.location:com.mncgroup.common.network$awaitResultAny(retrofit2.Call((com.mncgroup.common.network.awaitResultAny.T)))com.mncgroup.common.network/retrofit2.-call/await-result-any.md
+$dokka.location:com.mncgroup.common.network$awaitResultAny(retrofit2.Call((com.mncgroup.common.network.awaitResultAny.T)), kotlin.Function1((com.mncgroup.common.network.awaitResultAny.T, com.mncgroup.common.network.awaitResultAny.R)))com.mncgroup.common.network/retrofit2.-call/await-result-any.md
+com.mncgroup.auth.di
+com.mncgroup.auth.model
+com.mncgroup.auth.repository
+com.mncgroup.auth.ui.forgotpass
+com.mncgroup.auth.ui.login
+com.mncgroup.auth.ui.registration
+com.mncgroup.common.di
+com.mncgroup.common.model
+com.mncgroup.common.network
+com.mncgroup.common.repository
+com.mncgroup.mnccore
+com.mncgroup.mnccore.di
+com.mncgroup.mnccore.ui
+com.mncgroup.mnccore.ui.dashboard
+com.mncgroup.mnccore.ui.home
+com.mncgroup.mnccore.ui.notification

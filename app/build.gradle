@@ -53,6 +53,11 @@ android {
 
     dokka {
         packageOptions {
+            prefix = "com.mncgroup.mnccore.databinding"
+            reportUndocumented = false
+            suppress = true
+        }
+        packageOptions {
             prefix = "com.mncgroup.mnccore.util"
             reportUndocumented = false
             suppress = true
@@ -67,11 +72,9 @@ android {
             reportUndocumented = false
             suppress = true
         }
-
         configurations {
             outputFormat = 'gfm'
             outputDirectory = "$rootDir/docs"
-            sourceDirs = files(subprojects.collect { p -> new File(p.projectDir, "/src/main/java") })
 
             includes = ["$rootDir/docs/reference/packages.md"]
             includeNonPublic = false //default false
@@ -84,16 +87,11 @@ android {
         }
     }
 
-//    dokkaHtml.configure {
-//        dokkaSourceSets {
-//            named("main") {
-//                noAndroidSdkLink.set(false)
-//            }
-//        }
-//
-//    }
-
-
+    //TODO: Add main.java.srcDirs of module to merge module and generated document by dokka
+    sourceSets {
+        main.java.srcDirs += '../auth/src/main/java'
+        main.java.srcDirs += '../common/src/main/java'
+    }
 }
 
 dependencies {
@@ -107,4 +105,5 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    annotationProcessor 'androidx.room:room-compiler:2.2.6'
 }

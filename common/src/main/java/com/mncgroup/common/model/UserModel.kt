@@ -6,13 +6,16 @@ import java.io.Serializable
 
 /**
  * User Model
+ *
+ * TODO: Update this user model class data following business model project
+ *
  * @property id id user
  * @property token token auth user
  * @property name name of user
  * @property email email user
  * @property pictureUrl photo of user
+ *
  */
-// TODO: Update this user model class data following business model project
 @Entity(tableName = "user")
 data class UserModel(
     @PrimaryKey(autoGenerate = true)

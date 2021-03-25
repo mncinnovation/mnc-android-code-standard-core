@@ -2,6 +2,7 @@ package com.mncgroup.common.repository
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import androidx.room.Dao
 import com.mncgroup.common.model.UserModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

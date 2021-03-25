@@ -14,7 +14,8 @@ List of TODO grouped by module are explained below.
 |----|----|----|
 | app | Rename package name | Package name is required to renamed by your own project name. <br/>- Main package name that will used as package application is in main module (app), so ``Right Click`` at this package module, ``Refactor``, choice ``Rename`` (or you can type ``shift + F6``), and than ``Rename package``. <br>- Input your own package name project |
 | app | Change app name | App name is placed at resource strings values at main module (app module). So to rename it open ``res`` > ``values`` > ``strings``, find string values with name ``app_name``. Replace ``MNC Core Android`` with your own project name |
-| app | Replace Base URL |  You just have to modify ``build.gradle`` at main module (app). Right there are ``flavorDimensions`` with name ``flavor``.<br/>Replace value of property (``buildConfigField``) ``BASE_URL`` with your own base url project in all flavor environment (dev and prod).
+| app | Replace Base URL |  You just have to modify ``build.gradle`` at main module (app). Right there are ``flavorDimensions`` with name ``flavor``.<br/>Replace value of property (``buildConfigField``) ``BASE_URL`` with your own base url project in all flavor environment (dev and prod). |
+| app | Add main.java.srcDirs | Add main.java.srcDirs of module to merge each k-doc module and generated document by dokka |
 | app | Rename ``AppNameApplication`` class | Rename with project name application, for ex : MetubeApplication |
 | auth | Update ``LoginRequest`` | Find class ``LoginRequest`` at module ``auth`` than update this login request data following login request API. |
 | auth | Update ``LoginResponse`` | Find class ``LoginResponse`` at module ``auth`` than update this login response data following login response from API. |
