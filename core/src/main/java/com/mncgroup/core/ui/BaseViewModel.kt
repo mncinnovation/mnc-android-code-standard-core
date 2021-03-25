@@ -14,6 +14,14 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 import com.mncgroup.core.util.SingleLiveEvent
 
+/**
+ * An base view model to handle global logic/ job of application
+ * To handle result API, we have 3 condition handling:
+ * 1. Result.Ok -> Need to handle from inherit class
+ * 2. Result.Error -> Default is show error dialog with [showErrorDialog] LiveData, possible custom action with override it.
+ * 3. Result.Exception -> Possible exception is NeedUpdateException catched to shown [showUpdateDialog]
+ * catch NotLoggedInException, DifferentDeviceException to do [navigateToLogin], [NoInternetConnection] and other exception will shown [showErrorDialog]
+ */
 open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? = null) :
     ViewModel(),
     CoroutineScope {
@@ -62,10 +70,12 @@ open class BaseViewModel(private val analyticsRepository: AnalyticsRepository? =
     }
 
     protected open fun onResultError(error: Result.Error) {
+        _isLoading.value = false
         _showErrorDialog.postValue(ErrorWrapper(errorMessage = error.errorResponse.error ?: ""))
     }
 
     protected open fun onResultException(exception: Result.Exception) {
+        _isLoading.value = false
         when (exception.exception) {
             is NotLoggedInException, is DifferentDeviceException -> _navigateToLogin.postValue(
                 ErrorWrapper(exception.errorMessage.takeIf { it.isNotBlank() }

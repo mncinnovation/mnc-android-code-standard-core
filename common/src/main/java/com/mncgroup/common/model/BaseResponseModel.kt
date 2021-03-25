@@ -4,8 +4,8 @@ package com.mncgroup.common.model
  * Base response
  * This is following API response like this.
  * {
- *    responseCode : "00",
- *    responseMessage : "Success",
+ *    "responseCode" : "00",
+ *    "responseMessage" : "Success",
  *    ... other responses
  * }
  *

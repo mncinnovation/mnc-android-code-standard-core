@@ -6,6 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.mncgroup.common.repository.UserRepository
 import com.mncgroup.core.ui.BaseViewModel
 
+/**
+ * An notification view model
+ * @param userRepository user repository
+ */
 class NotificationsViewModel(private val userRepository: UserRepository) : BaseViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
@@ -14,6 +18,9 @@ class NotificationsViewModel(private val userRepository: UserRepository) : BaseV
 
     val text: LiveData<String> = _text
 
+    /**
+     * Function logic to logout the user
+     */
     fun logoutUser(){
         userRepository.clearUser()
     }

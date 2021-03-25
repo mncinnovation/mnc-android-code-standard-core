@@ -12,7 +12,7 @@ import java.io.Serializable
  * @property email email user
  * @property pictureUrl photo of user
  */
-// TODO : Update this user model class data following business model project
+// TODO: Update this user model class data following business model project
 @Entity(tableName = "user")
 data class UserModel(
     @PrimaryKey(autoGenerate = true)

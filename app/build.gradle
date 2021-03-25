@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.dokka'
 }
 
 android {
@@ -24,7 +25,7 @@ android {
         }
     }
 
-    // TODO : replace base url
+    // TODO: replace base url
     flavorDimensions "flavor"
     productFlavors {
         prod {
@@ -49,6 +50,50 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    dokka {
+        packageOptions {
+            prefix = "com.mncgroup.mnccore.util"
+            reportUndocumented = false
+            suppress = true
+        }
+        packageOptions {
+            prefix = "com.mncgroup.auth.util"
+            reportUndocumented = false
+            suppress = true
+        }
+        packageOptions {
+            prefix = "com.mncgroup.core.util"
+            reportUndocumented = false
+            suppress = true
+        }
+
+        configurations {
+            outputFormat = 'gfm'
+            outputDirectory = "$rootDir/docs"
+            sourceDirs = files(subprojects.collect { p -> new File(p.projectDir, "/src/main/java") })
+
+            includes = ["$rootDir/docs/reference/packages.md"]
+            includeNonPublic = false //default false
+
+            skipEmptyPackages = true
+            moduleName = 'reference'
+            skipDeprecated = true
+            reportUndocumented = true
+
+        }
+    }
+
+//    dokkaHtml.configure {
+//        dokkaSourceSets {
+//            named("main") {
+//                noAndroidSdkLink.set(false)
+//            }
+//        }
+//
+//    }
+
+
 }
 
 dependencies {

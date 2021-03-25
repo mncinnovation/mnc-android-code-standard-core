@@ -27,10 +27,12 @@ class LoginViewModel(
     }
 
     fun authLogin(email: String, password: String) {
+        _isLoading.value = true
         GlobalScope.launch(Dispatchers.Main) {
             val result = authRepository.requestLogin(LoginRequest(email, password))
             result.handle {
-                //other handle result ok
+                //handle result ok
+                _isLoading.value = false
             }
         }
     }

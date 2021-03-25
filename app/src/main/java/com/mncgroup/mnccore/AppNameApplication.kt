@@ -1,3 +1,4 @@
+//TODO: rename main package name with your application package name
 package com.mncgroup.mnccore
 
 import android.app.Application

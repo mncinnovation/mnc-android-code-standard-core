@@ -4,6 +4,7 @@ import com.mncgroup.auth.repository.AUTH_PATH
 import com.mncgroup.auth.repository.AuthApi
 import com.mncgroup.auth.repository.AuthRepository
 import com.mncgroup.auth.repository.AuthRepositoryImpl
+import com.mncgroup.auth.ui.forgotpass.ForgotPassViewModel
 import com.mncgroup.auth.ui.login.LoginViewModel
 import com.mncgroup.core.network.createApi
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -28,6 +29,7 @@ val authRepository = module {
  */
 val authFeatures = module {
     viewModel { LoginViewModel(get(), get()) }
+    viewModel { ForgotPassViewModel() }
 }
 
 val authModule = listOf(authRemoteDataSourceModule, authRepository, authFeatures)
