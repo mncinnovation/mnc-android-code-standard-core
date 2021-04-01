@@ -6,6 +6,8 @@ import com.mncgroup.common.model.UserModel
 /**
  * An login response model
  *
+ * TODO: Update this following login contract API project.
+ *
  * Response API following.
  * {
  *    responseCode : "00",
@@ -19,7 +21,6 @@ import com.mncgroup.common.model.UserModel
  *    }
  * }
  *
- * TODO: Update this following login contract API project.
  */
 class LoginResponse (
     override val responseCode: String,

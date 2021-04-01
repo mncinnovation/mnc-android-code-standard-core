@@ -6,6 +6,8 @@
 
 An login response model
 
+TODO: Update this following login contract API project.
+
 Response API following.
 {
     responseCode : "00",
@@ -18,8 +20,6 @@ Response API following.
       pictureUrl : "api.com/userimage.jpg"
     }
 }
-
-TODO: Update this following login contract API project.
 
 ### Constructors
 
