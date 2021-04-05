@@ -1,4 +1,4 @@
-# Biolerplate Android SDK
+# Android Code Standard Core Library
 
 ## Core Features
 
