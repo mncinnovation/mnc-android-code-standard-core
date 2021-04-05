@@ -101,12 +101,8 @@ android {
 }
 
 dependencies {
-
-    //features module
-    implementation project(':auth')
-
-    implementation project(':common')
     implementation project(':core')
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
