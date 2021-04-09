@@ -2,6 +2,9 @@ package com.mncgroup.mnccore.ui
 
 import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
+import com.mncgroup.core.util.ext.showAppCompatAlert
+import com.mncgroup.core.util.ext.showAppCompatAlertAction
 import com.mncgroup.mnccore.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
@@ -11,6 +14,12 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        with(binding){
+            btnShowAppCompatAlertAction.setOnClickListener {
+                showAppCompatAlert("This is a message"){
+                    Toast.makeText(this@MainActivity, "Test", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }
