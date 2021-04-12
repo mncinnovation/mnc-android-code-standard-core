@@ -25,4 +25,18 @@
         android:text="Show Alert"
         android:textSize="@dimen/body2_font_size"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnShowInputName"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnShowAppCompatAlertAction"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show Dialog Input Name"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
 </RelativeLayout>
