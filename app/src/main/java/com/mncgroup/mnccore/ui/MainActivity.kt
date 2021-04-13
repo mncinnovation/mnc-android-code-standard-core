@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import com.mncgroup.core.util.ext.showAppCompatAlert
 import com.mncgroup.core.util.ext.showAppCompatAlertInputAction
+import com.mncgroup.core.util.ext.showDatePickerAction
+import com.mncgroup.mnccore.R
 import com.mncgroup.mnccore.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
@@ -23,6 +25,17 @@ class MainActivity : Activity() {
             btnShowInputName.setOnClickListener {
                 showAppCompatAlertInputAction("Please to Input Fullname","Input","Kirim","Kembali","Fullname",true) { input ->
                     Toast.makeText(this@MainActivity, "Namanya adalah : $input", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            btnShowDatePicker.setOnClickListener {
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                    showDatePickerAction(null,null) { day, month, year ->
+                        Toast.makeText(this@MainActivity, "selected date is " + day +
+                                " / " + month +
+                                " / " + year, Toast.LENGTH_SHORT).show();
+                    }.show()
                 }
             }
         }

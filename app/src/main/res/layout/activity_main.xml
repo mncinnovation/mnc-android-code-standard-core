@@ -39,4 +39,18 @@
         android:textSize="@dimen/body2_font_size"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/btnShowDatePicker"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnShowInputName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show Date Picker"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+
 </RelativeLayout>
