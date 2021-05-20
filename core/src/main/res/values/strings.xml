@@ -2,4 +2,8 @@
 
     <string name="label_msg_offline">No internet connection. Please to make sure your phone connected with internet!</string>
     <string name="label_please_wait">Please wait!</string>
+    <string name="label_attention">Attention</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="title_submit">Submit</string>
 </resources>

@@ -3,4 +3,8 @@
     <style name="TextAppearance.Body1" parent="TextAppearance.AppCompat.Subhead">
         <item name="android:textSize">@dimen/body1_font_size</item>
     </style>
+    <style name="TextAppearance.Caption1.Hint" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/caption1_font_size</item>
+        <item name="android:textColor">@color/hint_text</item>
+    </style>
 </resources>
