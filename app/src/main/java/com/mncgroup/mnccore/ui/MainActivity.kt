@@ -3,6 +3,7 @@ package com.mncgroup.mnccore.ui
 import android.app.Activity
 import android.os.Bundle
 import android.widget.Toast
+import com.mncgroup.core.util.ext.Intents
 import com.mncgroup.core.util.ext.showAppCompatAlert
 import com.mncgroup.core.util.ext.showAppCompatAlertInputAction
 import com.mncgroup.core.util.ext.showDatePickerAction
@@ -16,7 +17,14 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         with(binding){
+            btnOpenAppSetting.setOnClickListener {
+                startActivity(Intents.createOpenAppSettingsIntent(this@MainActivity))
+            }
+            btnOpenLocationSetting.setOnClickListener {
+                startActivity(Intents.createOpenLocationSettings())
+            }
             btnShowAppCompatAlertAction.setOnClickListener {
                 showAppCompatAlert("This is a message"){
                     Toast.makeText(this@MainActivity, "Test", Toast.LENGTH_SHORT).show()
