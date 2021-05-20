@@ -3,11 +3,7 @@ package com.mncgroup.mnccore.ui
 import android.app.Activity
 import android.os.Bundle
 import android.widget.Toast
-import com.mncgroup.core.util.ext.Intents
-import com.mncgroup.core.util.ext.showAppCompatAlert
-import com.mncgroup.core.util.ext.showAppCompatAlertInputAction
-import com.mncgroup.core.util.ext.showDatePickerAction
-import com.mncgroup.mnccore.R
+import com.mncgroup.core.util.ext.*
 import com.mncgroup.mnccore.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
@@ -19,6 +15,11 @@ class MainActivity : Activity() {
         setContentView(binding.root)
 
         with(binding){
+            btnShowSnackbar.setOnClickListener {
+                showSnackbar(it,"Ini snackbar"){
+                    Toast.makeText(this@MainActivity, "closed snackbar", Toast.LENGTH_SHORT).show()
+                }
+            }
             btnOpenAppSetting.setOnClickListener {
                 startActivity(Intents.createOpenAppSettingsIntent(this@MainActivity))
             }

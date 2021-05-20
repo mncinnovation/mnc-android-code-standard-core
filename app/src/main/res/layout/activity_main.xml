@@ -15,6 +15,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin_large"
         android:text="Main" />
+    <Button
+        android:id="@+id/btnShowSnackbar"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show snackbar"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnOpenAppSetting"
