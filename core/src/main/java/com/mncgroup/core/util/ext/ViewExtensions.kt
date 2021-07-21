@@ -5,6 +5,10 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.view.ViewCompat
+import androidx.core.view.forEach
 
 /**
  * to set density format (dp) of integer value
@@ -46,4 +50,23 @@ fun View.toBitmap(): Bitmap {
         canvas.drawColor(Color.WHITE)
     draw(canvas)
     return returnedBitmap
+}
+
+fun View.setApplyWindowInsetsToChild() {
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        (v as? ViewGroup)?.forEach { ViewCompat.dispatchApplyWindowInsets(it, insets) }
+        insets
+    }
+}
+
+fun View.showKeyboard() {
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)?.apply {
+        toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
+    }
+}
+
+fun View.hideKeyboard() {
+    (context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager)?.apply {
+        hideSoftInputFromWindow(windowToken, 0)
+    }
 }
