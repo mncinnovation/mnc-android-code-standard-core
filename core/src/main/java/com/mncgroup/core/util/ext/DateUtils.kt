@@ -2,6 +2,12 @@
 
 package com.mncgroup.core.util.ext
 
+import android.app.DatePickerDialog
+import android.content.Context
+import android.os.Build
+import android.widget.DatePicker
+import androidx.annotation.RequiresApi
+import androidx.annotation.StyleRes
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,12 +37,13 @@ fun Calendar.getMinutes() = this[Calendar.MINUTE]
 fun Calendar.getSeconds() = this[Calendar.SECOND]
 fun Calendar.getMilliseconds() = this[Calendar.MILLISECOND]
 
-fun DateFormat.parseIndonesianCalendar(dateString: String): Calendar = Calendar.getInstance(indonesianLocale).apply {
-    val parsedDate = this@parseIndonesianCalendar.parse(dateString)
-    if (parsedDate != null) {
-        time = parsedDate
+fun DateFormat.parseIndonesianCalendar(dateString: String): Calendar =
+    Calendar.getInstance(indonesianLocale).apply {
+        val parsedDate = this@parseIndonesianCalendar.parse(dateString)
+        if (parsedDate != null) {
+            time = parsedDate
+        }
     }
-}
 
 fun Date.toSuccessString(): String = successDateFormat.format(this)
 
@@ -48,4 +55,26 @@ fun Int.secondToMinuteSecondString(): String {
     val minute = this / 60
     val second = this % 60
     return "${minute.asMinutesString()}:${second.asMinutesString()}"
+}
+
+@RequiresApi(Build.VERSION_CODES.N)
+fun Context.showDatePickerAction(
+    @StyleRes style: Int? = null,
+    initYear: Int? = null,
+    actionListener: (day: Int, month: Int, year: Int) -> Unit
+): DatePickerDialog = this.let {
+    val currentTime = Calendar.getInstance()
+    val year = initYear ?: currentTime.get(Calendar.YEAR)
+    val month = currentTime.get(Calendar.MONTH)
+    val day = currentTime.get(Calendar.DAY_OF_MONTH)
+
+    if (style != null) DatePickerDialog(
+        this, style, { _, year, month, dayOfMonth ->
+            actionListener(dayOfMonth, month + 1, year)
+        }, year, month, day
+    ) else DatePickerDialog(
+        this, { _, year, month, dayOfMonth ->
+            actionListener(dayOfMonth, month + 1, year)
+        }, year, month, day
+    )
 }

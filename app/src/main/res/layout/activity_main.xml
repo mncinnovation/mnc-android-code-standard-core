@@ -1,15 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <TextView
+        android:id="@+id/tvMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Main"
-        />
-</RelativeLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="Main" />
+    <Button
+        android:id="@+id/btnShowSnackbar"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show snackbar"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnOpenAppSetting"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvMain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Open App Setting"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnOpenLocationSetting"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnOpenAppSetting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Open Location Setting"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnShowAppCompatAlertAction"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnOpenLocationSetting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show Alert"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnShowInputName"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnShowAppCompatAlertAction"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show Dialog Input Name"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnShowDatePicker"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnShowInputName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_large"
+        android:padding="@dimen/padding_large"
+        android:text="Show Date Picker"
+        android:textSize="@dimen/body2_font_size"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
