@@ -9,6 +9,36 @@
 * WebViewActivity used/ call this directly to show webview 
 * BaseActivity and BaseFragment
 
+## How to use
+Gradle
+```
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
+
+dependencies {
+  implementation 'com.github.mncinnovation:mnc-android-code-standard-core:0.1.1'
+}
+```
+or Maven
+```
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+
+<dependency>
+  <groupId>com.github.mncinnovation</groupId>
+  <artifactId>mnc-android-code-standard-core</artifactId>
+  <version>0.1.1</version>
+</dependency>
+```
+
 ## License
 
 ```
