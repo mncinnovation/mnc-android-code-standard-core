@@ -7,7 +7,7 @@ import com.mncgroup.core.util.ext.*
 import com.mncgroup.mnccore.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class MainActivity : Activity() {
                     showDatePickerAction(null,null) { day, month, year ->
                         Toast.makeText(this@MainActivity, "selected date is " + day +
                                 " / " + month +
-                                " / " + year, Toast.LENGTH_SHORT).show();
+                                " / " + year, Toast.LENGTH_SHORT).show()
                     }.show()
                 }
             }
