@@ -84,9 +84,7 @@ abstract class BaseWebViewActivity : BaseActivity() {
             WebView.setWebContentsDebuggingEnabled(true)
         }
 
-        binding.toolbar.let {
-            setSupportActionBar(it)
-        }
+        setSupportActionBar(binding.toolbar)
         showToolbar(true)
         showToolbarBack(true)
         showToolbarTitle(true)
