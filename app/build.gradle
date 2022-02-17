@@ -6,13 +6,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.mncgroup.mnccore"
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -91,6 +90,11 @@ android {
         }
         sourceDirs = files(subprojects.collect { p -> new File(p.projectDir, "/src/main/java") })
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 //    TODO: Uncomment this section when you want to build/ generate multiple module documentation including app by using dokka
 //    TODO: Add main.java.srcDirs of module to merge module and generated documentation by dokka
 //    sourceSets {
@@ -102,10 +106,10 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
 
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    annotationProcessor 'androidx.room:room-compiler:2.2.6'
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_espresso_core"
 }
