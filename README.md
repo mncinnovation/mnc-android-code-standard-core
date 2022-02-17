@@ -20,7 +20,7 @@ allprojects {
 }
 
 dependencies {
-  implementation 'com.github.mncinnovation:mnc-android-code-standard-core:0.1.1'
+  implementation 'com.github.mncinnovation:mnc-android-code-standard-core:0.1.3'
 }
 ```
 or Maven
