@@ -1,4 +1,4 @@
-# Android Code Standard Core Library
+# Android Code Standard Core Library <img src="https://img.shields.io/github/v/release/mncinnovation/mnc-android-code-standard-core.svg?label=latest"/>
 
 ## Core Features
 
