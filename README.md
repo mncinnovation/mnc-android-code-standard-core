@@ -148,7 +148,7 @@ Show appCompatAlert or with action, or with input action.
 }
 ```
 
-8. Date Picker
+8. Date Picker and Date utils
 ```kotlin
    btnShowDatePicker.setOnClickListener {
     showDatePickerAction(null, null) { day, month, year ->
@@ -160,6 +160,16 @@ Show appCompatAlert or with action, or with input action.
     }.show()
 }
 ```
+
+Calendar extensions
+- ``Calendar.getDate()`` 
+- ``Calendar.getMonth()``
+- ``Calendar.getFullYear()``
+- ``Calendar.getHours()``, ``Calendar.getMinutes()``, ``Calendar.getSeconds()``, ``Calendar.getMilliseconds()``
+- ``DateFormat.parseIndonesianCalendar(dateString: String): Calendar``
+
+Date Format with indonesian Locale variable
+    ![Date Format](docs/image/dateFormat.jpg)
 
 9. Permissions 
 
@@ -236,15 +246,13 @@ Common functions for view configurations.
 Start an Activity for given class T and allow to work on intent with "run" lambda function
 - ``<T : Fragment> T.withSerializable(vararg arguments: Pair<String, Serializable>)``
 - ``<T : Fragment> T.withParcelable(vararg arguments: Pair<String, Parcelable>): T``
-
-Retrieve property from intent
+  Retrieve property from intent
 - ``<T : Any> AppCompatActivity.argument(key: String) : T``
 - ``<T : Any> AppCompatActivity.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> AppCompatActivity.argumentNotNull(key: String, defaultValue: T) : T``
 - ``<T : Any> Fragment.argument(key: String) : T``
 - ``<T : Any> Fragment.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> Fragment.argumentNotNull(key: String, defaultValue: T) : T``
-
 13. ConfigUtils
 
 Configuration for resources locale
