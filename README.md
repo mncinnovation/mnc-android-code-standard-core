@@ -246,7 +246,8 @@ Common functions for view configurations.
 Start an Activity for given class T and allow to work on intent with "run" lambda function
 - ``<T : Fragment> T.withSerializable(vararg arguments: Pair<String, Serializable>)``
 - ``<T : Fragment> T.withParcelable(vararg arguments: Pair<String, Parcelable>): T``
-  Retrieve property from intent
+
+Retrieve property from intent
 - ``<T : Any> AppCompatActivity.argument(key: String) : T``
 - ``<T : Any> AppCompatActivity.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> AppCompatActivity.argumentNotNull(key: String, defaultValue: T) : T``
