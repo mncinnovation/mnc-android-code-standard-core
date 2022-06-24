@@ -105,7 +105,9 @@ class LoginViewModel constructor(
     )
 ```
 
-4. Load Image Easy load image by accessing GlideUtils.kt
+4. Load Image 
+
+Easy load image by accessing ImageView extensions.
    ![image view extension](docs/image/imageViewExtension.jpg)
 
 ```kotlin
@@ -122,7 +124,9 @@ class LoginViewModel constructor(
 }
 ```
 
-6. Intens There is an Intents object that contain functions that return Intent
+6. Intens 
+
+There is an Intents object that contain functions that return Intent
    ![Intents](docs/image/intents.jpg)
 
 ```kotlin
@@ -131,7 +135,9 @@ class LoginViewModel constructor(
 }
 ```
 
-7. AppCompatAlert Show appCompatAlert or with action, or with input action.
+7. AppCompatAlert 
+
+Show appCompatAlert or with action, or with input action.
    ![showAppCompatAlert Options](docs/image/showAppCompatAlertOption.jpg)
 
 ```kotlin
@@ -155,7 +161,9 @@ class LoginViewModel constructor(
 }
 ```
 
-9. Permissions Check any permissions and request permissions.
+9. Permissions 
+
+Check any permissions and request permissions.
 
 ```kotlin
     private fun checkPermissionOrOpenCamera() {
@@ -179,6 +187,7 @@ class LoginViewModel constructor(
 ```
 
 10. Internet Util
+
 This is an object to help app check internet connection.
 First need to init in application class.
 ```kotlin
@@ -214,6 +223,7 @@ class AuthRepositoryImpl(private val authApi: AuthApi, private val userRepositor
 ```
 
 11. View Extensions
+
 Common functions for view configurations.
 - ``View.hideKeyboard()`` and ``View.showKeyboard()``
 - ``View.toBitmap()``
@@ -222,7 +232,8 @@ Common functions for view configurations.
 - ``Context.dip(value: Int)``
 
 12. Arguments
-  Start an Activity for given class T and allow to work on intent with "run" lambda function
+  
+Start an Activity for given class T and allow to work on intent with "run" lambda function
 - ``<T : Fragment> T.withSerializable(vararg arguments: Pair<String, Serializable>)``
 - ``<T : Fragment> T.withParcelable(vararg arguments: Pair<String, Parcelable>): T``
   Retrieve property from intent
@@ -233,6 +244,7 @@ Common functions for view configurations.
 - ``<T : Any> Fragment.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> Fragment.argumentNotNull(key: String, defaultValue: T) : T``
 13. ConfigUtils
+
 Configuration for resources locale
 - ``Context.updateResourcesLocale(locale: Locale): Context``
 - ``Context.updateResourcesLocaleLegacy(locale: Locale): Context``
