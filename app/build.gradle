@@ -108,6 +108,7 @@ dependencies {
     implementation project(':core')
     implementation "io.insert-koin:koin-android:$koin_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
