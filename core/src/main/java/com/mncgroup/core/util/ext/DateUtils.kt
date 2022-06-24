@@ -57,24 +57,22 @@ fun Int.secondToMinuteSecondString(): String {
     return "${minute.asMinutesString()}:${second.asMinutesString()}"
 }
 
-@RequiresApi(Build.VERSION_CODES.N)
 fun Context.showDatePickerAction(
     @StyleRes style: Int? = null,
     initYear: Int? = null,
     actionListener: (day: Int, month: Int, year: Int) -> Unit
 ): DatePickerDialog = this.let {
     val currentTime = Calendar.getInstance()
-    val year = initYear ?: currentTime.get(Calendar.YEAR)
-    val month = currentTime.get(Calendar.MONTH)
+    val yearInit = initYear ?: currentTime.get(Calendar.YEAR)
+    val monthInit = currentTime.get(Calendar.MONTH)
     val day = currentTime.get(Calendar.DAY_OF_MONTH)
-
     if (style != null) DatePickerDialog(
         this, style, { _, year, month, dayOfMonth ->
             actionListener(dayOfMonth, month + 1, year)
-        }, year, month, day
+        }, yearInit, monthInit, day
     ) else DatePickerDialog(
         this, { _, year, month, dayOfMonth ->
             actionListener(dayOfMonth, month + 1, year)
-        }, year, month, day
+        }, yearInit, monthInit, day
     )
 }

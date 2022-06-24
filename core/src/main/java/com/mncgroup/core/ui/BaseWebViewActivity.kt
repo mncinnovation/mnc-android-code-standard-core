@@ -8,6 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
+import android.view.MenuItem
 import android.webkit.ValueCallback
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
@@ -83,8 +85,11 @@ abstract class BaseWebViewActivity : BaseActivity() {
             }
             WebView.setWebContentsDebuggingEnabled(true)
         }
-
-        setSupportActionBar(binding.toolbar)
+//        try {
+//            setSupportActionBar(binding.toolbar)
+//        } catch (e : IllegalStateException){
+//            e.printStackTrace()
+//        }
         showToolbar(true)
         showToolbarBack(true)
         showToolbarTitle(true)
@@ -100,6 +105,13 @@ abstract class BaseWebViewActivity : BaseActivity() {
                 super.onBackPressed();
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     protected fun setPageTitle(title: String?) {

@@ -1,6 +1,7 @@
 package com.mncgroup.core.ui
 
 import android.os.Bundle
+import android.util.Log
 
 class WebViewActivity : BaseWebViewActivity() {
 
