@@ -89,7 +89,7 @@ class LoginViewModel constructor(
 }
 ```
 
-3. WebViewActivity, an activity class to show webview activity. You can use ``WebViewActivity``
+3. WebViewActivity, an activity class to show webview. You can use ``WebViewActivity``
    directly from your project.
 
 ```kotlin
@@ -106,7 +106,7 @@ class LoginViewModel constructor(
 ```
 
 4. Load Image Easy load image by accessing GlideUtils.kt
-   ![image view extension](/docs/image/imageViewExtension.jpg)
+   ![image view extension](docs/image/imageViewExtension.jpg)
 
 ```kotlin
     ivImage.load("https://img.shields.io/github/v/release/mncinnovation/mnc-android-code-standard-core.svg?label=latest")
@@ -123,7 +123,7 @@ class LoginViewModel constructor(
 ```
 
 6. Intens There is an Intents object that contain functions that return Intent
-   ![image view extension](/docs/image/intents.jpg)
+   ![Intents](docs/image/intents.jpg)
 
 ```kotlin
     btnOpenLocationSetting.setOnClickListener {
@@ -132,7 +132,7 @@ class LoginViewModel constructor(
 ```
 
 7. AppCompatAlert Show appCompatAlert or with action, or with input action.
-   ![image view extension](/docs/image/showAppCompatAlertOption.jpg)
+   ![showAppCompatAlert Options](docs/image/showAppCompatAlertOption.jpg)
 
 ```kotlin
     btnShowAppCompatAlertAction.setOnClickListener {
@@ -190,7 +190,9 @@ class AppNameApplication : Application() {
     }
 }
 ```
+
 And to use it call ``runIfConnectedOrResultException`` and place call of function API at the body like this sample.
+
 ```kotlin
 
 interface AuthRepository {
@@ -210,6 +212,7 @@ class AuthRepositoryImpl(private val authApi: AuthApi, private val userRepositor
     }
 }
 ```
+
 11. View Extensions
 Common functions for view configurations.
 - ``View.hideKeyboard()`` and ``View.showKeyboard()``
