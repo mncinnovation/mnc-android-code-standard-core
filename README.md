@@ -94,14 +94,14 @@ class LoginViewModel constructor(
 
 ```kotlin
     val headers: MutableMap<String, String> = mutableMapOf()
-   headers["token"] = "5454wvybw9y9"
-   startActivity(
-       Intent(this@MainActivity, WebViewActivity::class.java)
-           .apply {
-               putExtra(EXTRA_TITLE, "Webview")
-               putExtra(EXTRA_HEADERS, headers.toMap() as Serializable)
-               data = Uri.parse("https://cloud.google.com/speech-to-text/docs/libraries")
-           }
+    headers["token"] = "5454wvybw9y9"
+    startActivity(
+        Intent(this@MainActivity, WebViewActivity::class.java)
+            .apply {
+                putExtra(EXTRA_TITLE, "Webview")
+                putExtra(EXTRA_HEADERS, headers.toMap() as Serializable)
+                data = Uri.parse("https://cloud.google.com/speech-to-text/docs/libraries")
+            }
     )
 ```
 
@@ -114,14 +114,33 @@ Easy load image by accessing ImageView extensions.
     ivImage.load("https://img.shields.io/github/v/release/mncinnovation/mnc-android-code-standard-core.svg?label=latest")
 ```
 
-5. Snackbar
+5. Snackbar & Toasts
 
 ```kotlin
     btnShowSnackbar.setOnClickListener {
-    showSnackbar(it, "Ini snackbar") {
-        Toast.makeText(this@MainActivity, "closed snackbar", Toast.LENGTH_SHORT).show()
+        showSnackbar(it, "Ini snackbar") {
+            Toast.makeText(this@MainActivity, "closed snackbar", Toast.LENGTH_SHORT).show()
+        }
     }
-}
+    btnShowToast.setOnClickListener {
+        //toast default
+        showToast("Sample message from toast")
+        
+        //custom view toast
+        val layout = layoutInflater.inflate(R.layout.toast_custom, findViewById(R.id.toast_layout_root))
+        val textView: TextView = layout.findViewById<View>(R.id.tvSuccessInfo) as TextView
+        val imgView: ImageView = layout.findViewById<View>(R.id.ivIcon) as ImageView
+    
+        textView.text = message
+        imgView.setImageDrawable(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_check_circle_green
+            )
+        )
+        showToastCustom(layout)//default shown position at top
+        showToastCustom(layout, Gravity.BOTTOM, 0, 120)//or custom gravity and x, y offset 
+    }
 ```
 
 6. Intens
@@ -131,8 +150,8 @@ There is an Intents object that contain functions that return Intent
 
 ```kotlin
     btnOpenLocationSetting.setOnClickListener {
-    startActivity(Intents.createOpenLocationSettings())
-}
+        startActivity(Intents.createOpenLocationSettings())
+    }
 ```
 
 7. AppCompatAlert
@@ -142,30 +161,33 @@ Show appCompatAlert or with action, or with input action.
 
 ```kotlin
     btnShowAppCompatAlertAction.setOnClickListener {
-    showAppCompatAlert("This is a message") {
-        Toast.makeText(this@MainActivity, "Test", Toast.LENGTH_SHORT).show()
+        showAppCompatAlert("This is a message") {
+            Toast.makeText(this@MainActivity, "Test", Toast.LENGTH_SHORT).show()
+        }
     }
-}
 ```
 
 8. Date Picker and Date utils
+
 ```kotlin
    btnShowDatePicker.setOnClickListener {
-    showDatePickerAction(null, null) { day, month, year ->
-        Toast.makeText(
-            this@MainActivity, "selected date is " + day +
-                    " / " + month +
-                    " / " + year, Toast.LENGTH_SHORT
-        ).show()
-    }.show()
-}
+        showDatePickerAction(null, null) { day, month, year ->
+            Toast.makeText(
+                this@MainActivity, "selected date is " + day +
+                        " / " + month +
+                        " / " + year, Toast.LENGTH_SHORT
+            ).show()
+        }.show()
+    }
 ```
 
 Calendar extensions
+
 - ``Calendar.getDate()``
 - ``Calendar.getMonth()``
 - ``Calendar.getFullYear()``
-- ``Calendar.getHours()``, ``Calendar.getMinutes()``, ``Calendar.getSeconds()``, ``Calendar.getMilliseconds()``
+- ``Calendar.getHours()``, ``Calendar.getMinutes()``, ``Calendar.getSeconds()``
+  , ``Calendar.getMilliseconds()``
 - ``DateFormat.parseIndonesianCalendar(dateString: String): Calendar``
 
 Date Format with indonesian Locale variable
@@ -198,8 +220,8 @@ Check any permissions and request permissions.
 
 10. Internet Util
 
-This is an object to help app check internet connection.
-First need to init in application class.
+This is an object to help app check internet connection. First need to init in application class.
+
 ```kotlin
 class AppNameApplication : Application() {
     override fun onCreate() {
@@ -210,7 +232,8 @@ class AppNameApplication : Application() {
 }
 ```
 
-And to use it call ``runIfConnectedOrResultException`` and place call of function API at the body like this sample.
+And to use it call ``runIfConnectedOrResultException`` and place call of function API at the body
+like this sample.
 
 ```kotlin
 
@@ -235,6 +258,7 @@ class AuthRepositoryImpl(private val authApi: AuthApi, private val userRepositor
 11. View Extensions
 
 Common functions for view configurations.
+
 - ``View.hideKeyboard()`` and ``View.showKeyboard()``
 - ``View.toBitmap()``
 - ``Boolean?.toVisibleOrGone()``
@@ -244,19 +268,23 @@ Common functions for view configurations.
 12. Arguments
 
 Start an Activity for given class T and allow to work on intent with "run" lambda function
+
 - ``<T : Fragment> T.withSerializable(vararg arguments: Pair<String, Serializable>)``
 - ``<T : Fragment> T.withParcelable(vararg arguments: Pair<String, Parcelable>): T``
 
 Retrieve property from intent
+
 - ``<T : Any> AppCompatActivity.argument(key: String) : T``
 - ``<T : Any> AppCompatActivity.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> AppCompatActivity.argumentNotNull(key: String, defaultValue: T) : T``
 - ``<T : Any> Fragment.argument(key: String) : T``
 - ``<T : Any> Fragment.argument(key: String, defaultValue: T? = null) : T``
 - ``<T : Any> Fragment.argumentNotNull(key: String, defaultValue: T) : T``
+
 13. ConfigUtils
 
 Configuration for resources locale
+
 - ``Context.updateResourcesLocale(locale: Locale): Context``
 - ``Context.updateResourcesLocaleLegacy(locale: Locale): Context``
 - ``Context.updateBaseContextLocale(locale: Locale): Context``
